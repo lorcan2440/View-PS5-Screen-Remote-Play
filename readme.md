@@ -32,7 +32,7 @@ You can get even faster processing by using C++ instead of Python. I have provid
 
 Great for computer vision applications (object detection etc).
 
-## Code (Python)
+## Code (Python) [`record_window.py`](https://github.com/lorcan2440/View-PS5-Screen-Remote-Play/blob/main/record_window.py)
 
 ```python
 
@@ -118,7 +118,7 @@ if __name__ == '__main__':
         cv.imshow('Computer Vision', img)
 ```
 
-## Code (C++)
+## Code (C++) [`record_window.cpp`](https://github.com/lorcan2440/View-PS5-Screen-Remote-Play/blob/main/record_window.cpp)
 
 ```cpp
 
