@@ -7,14 +7,42 @@ WIN_HANDLES = None
 PW_CLIENTONLY = 0x03  # https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-printwindow
 
 
-def capture_win_alt(window_name: str):
+def capture_win_alt(window_title: str) -> np.ndarray:
+    '''
+    Read an image frame from a given named window. The window must not be
+    minimised, but it can be obscured behind other windows. It can also
+    be hardware accelerated.
+
+    This function works well for capturing gameplay from PS Remote Play. Example:
+
+    ```python
+    if __name__ == '__main__':
+        cv.namedWindow('Computer Vision', cv.WINDOW_NORMAL)
+        while cv.waitKey(1) != ord('q'):
+            # press 'q' to quit
+            img = capture_win_alt('PS Remote Play')
+            cv.imshow('Computer Vision', img)
+    ```
+    
+    ### Arguments
+    - `window_title` (str): The title of the window to capture. Use the function
+    `get_all_window_names()` to get a list of all windows. Alternatively, hovering
+    over the window in the taskbar will usually show the correct name to use.
+    
+    ### Returns
+    - `np.ndarray`: a 3D BGR image array of shape (height, width, 3).
+
+    ### Raises
+    - `RuntimeError`: if something happens to prevent the image in the window being read.
+    Common cause: minimising the window.
+    '''    
 
     global WIN_HANDLES
 
     if WIN_HANDLES is None or cv.waitKey(1) == ord('r'):
         # press 'r' to refresh after changing the window size
         windll.user32.SetProcessDPIAware()
-        hwnd = win32gui.FindWindow(None, window_name)
+        hwnd = win32gui.FindWindow(None, window_title)
         left, top, right, bottom = win32gui.GetClientRect(hwnd)
         w = right - left
         h = bottom - top
@@ -45,8 +73,16 @@ def capture_win_alt(window_name: str):
     return img
 
 
-cv.namedWindow('Computer Vision', cv.WINDOW_NORMAL)
-while cv.waitKey(1) != ord('q'):
-    # press 'q' to quit
-    img = capture_win_alt('PS Remote Play')
-    cv.imshow('Computer Vision', img)
+def get_all_window_names():
+    import pyautogui
+    windows = pyautogui.getAllWindows()
+    for window in windows:
+        print(window.title)
+
+if __name__ == '__main__':
+    get_all_window_names()
+    cv.namedWindow('Computer Vision', cv.WINDOW_NORMAL)
+    while cv.waitKey(1) != ord('q'):
+        # press 'q' to quit
+        img = capture_win_alt('PS Remote Play')
+        cv.imshow('Computer Vision', img)
