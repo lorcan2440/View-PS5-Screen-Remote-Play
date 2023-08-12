@@ -1,6 +1,6 @@
 ## Livestream PS5 Gameplay into OpenCV running on PC
 
-A lot of existing scripts to read graphics from windows into Python do not work for windows that are both hardware-accelerated (such as PS Remote Play) and obscured by other windows. Here is one that does!
+A lot of existing scripts to read graphics from windows into Python do not work for windows that are both hardware-accelerated (such as PS Remote Play) and obscured by other windows. Here is one that does! Scripts provided in Python and C++ (user's choice).
 
 #### Requirements:
 
