@@ -80,7 +80,6 @@ def get_all_window_names():
         print(window.title)
 
 if __name__ == '__main__':
-    get_all_window_names()
     cv.namedWindow('Computer Vision', cv.WINDOW_NORMAL)
     while cv.waitKey(1) != ord('q'):
         # press 'q' to quit
