@@ -25,9 +25,8 @@ def capture_win_alt(window_title: str) -> np.ndarray:
     ```
     
     ### Arguments
-    - `window_title` (str): The title of the window to capture. Use the function
-    `get_all_window_names()` to get a list of all windows. Alternatively, hovering
-    over the window in the taskbar will usually show the correct name to use.
+    - `window_title` (str): The title of the window to capture. Hovering
+    over the window in the taskbar will usually (not always) show the correct name to use.
     
     ### Returns
     - `np.ndarray`: a 3D BGR image array of shape (height, width, 3).
@@ -72,12 +71,6 @@ def capture_win_alt(window_title: str) -> np.ndarray:
 
     return img
 
-
-def get_all_window_names():
-    import pyautogui
-    windows = pyautogui.getAllWindows()
-    for window in windows:
-        print(window.title)
 
 if __name__ == '__main__':
     cv.namedWindow('Computer Vision', cv.WINDOW_NORMAL)
