@@ -1,13 +1,13 @@
-## Livestream PS5 Gameplay into OpenCV running on PC
+# Livestream PS5 Gameplay into OpenCV running on PC
 
 A lot of existing scripts to read graphics from windows into Python do not work for windows that are both hardware-accelerated (such as PS Remote Play) and obscured by other windows (always useful when wanting to run in the background). Here is one that does! Scripts provided in Python and C++ (user's choice).
 
-#### Requirements:
+## Requirements:
 
 - PS Remote Play Software: https://remoteplay.dl.playstation.net/remoteplay/lang/gb/index.html
 - PC running Windows with Python installed
 
-#### Steps
+## Steps
 
 I followed the steps in the first 3 minutes only of [this](https://www.youtube.com/watch?v=cNBs8Wgelf0) video, except for the OBS/Streamlabs part.
 
@@ -32,7 +32,7 @@ You can get even faster processing by using C++ instead of Python. I have provid
 
 Great for computer vision applications (object detection etc).
 
-#### Code (Python)
+## Code (Python)
 
 ```python
 
@@ -118,7 +118,7 @@ if __name__ == '__main__':
         cv.imshow('Computer Vision', img)
 ```
 
-#### Code (C++)
+## Code (C++)
 
 ```cpp
 
