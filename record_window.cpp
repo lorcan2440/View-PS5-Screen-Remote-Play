@@ -2,6 +2,7 @@
 #include <Windows.h>
 #include <opencv2/opencv.hpp>
 
+
 cv::Mat captureWindow(const std::string& windowName) {
     HWND hwnd = FindWindowA(NULL, windowName.c_str());
 
