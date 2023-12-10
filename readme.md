@@ -11,10 +11,6 @@ Streaming software is not required.
 
 ## Steps
 
-I followed the steps in the first 3 minutes only of [this](https://www.youtube.com/watch?v=cNBs8Wgelf0) video, except for the OBS/Streamlabs part.
-
-The steps are:
-
 1. Create a new PSN account ("the second account"). This will be used to host the Remote Play session to decrease lag. You will still be able to use your main account to actually play the game!
 2. While logged into the second account, go to Settings > Users and Accounts > Other > Enable Console Sharing and Offline Play.
 3. Switch users (don't log out) back to your main account.
@@ -35,6 +31,8 @@ You can get even faster processing by using C++ instead of Python. I have provid
 Great for computer vision applications (object detection etc).
 
 ## Notes
+
+I followed the steps in the first 3 minutes only of [this](https://www.youtube.com/watch?v=cNBs8Wgelf0) video, except for the OBS/Streamlabs part.
 
 By changing the name of the window that is recorded in the code, you can capture any other window too.
 
