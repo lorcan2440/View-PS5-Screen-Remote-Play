@@ -24,16 +24,16 @@ Streaming software is not required.
     `pip install numpy opencv-python pywin32`
 11. Copy and run the Python code in `record_window.py`. If all goes well you should see your gameplay live in an OpenCV window. You can of course use this code as a module in your larger project.
 
-The latency is low with PS Remote Play. The resolution depends on your internet connection but is usually pretty good. The frame rate is usually not as high as the source but should be 30+ FPS. It's good enough that you can play even fast-paced games by watching the stream instead of your TV.
-
-You can get even faster processing by using C++ instead of Python. I have provided an equivalent version of the python script here in C++. Installing opencv in C++ requires building the library from scratch however which is not as beginner friendly as python.
-
-Great for computer vision applications (object detection etc).
-
 ## Notes
 
 I followed the steps in the first 3 minutes only of [this](https://www.youtube.com/watch?v=cNBs8Wgelf0) video, except for the OBS/Streamlabs part.
 
 By changing the name of the window that is recorded in the code, you can capture any other window too.
+
+The latency is low with PS Remote Play. The resolution depends on your internet connection but is usually pretty good. The frame rate is usually not as high as the source but should be 30+ FPS. It's good enough that you can play even fast-paced games by watching the stream instead of your TV.
+
+You can get even faster processing by using C++ instead of Python. I have provided an equivalent version of the python script here in C++ at `record_window.cpp`. Installing opencv in C++ requires building the library from scratch however which is not as beginner friendly as python.
+
+Great for computer vision applications (object detection etc).
 
 Using this code to capture DeSmuME (Nintendo DS emulator) gameplay produced poor results, with frequent white flashing of the screen. Changing the frame skip options did not seem to improve it so this remains unfeasible right now.
