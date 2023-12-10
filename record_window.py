@@ -9,7 +9,6 @@ WIN_HANDLES = None
 PW_CLIENTONLY = 0x03  # https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-printwindow
 WINDOW_NAME_SEARCH_REGEX = r'PS Remote Play'
 
-
 def winEnumHandler(hwnd, regex, window_titles):
     if win32gui.IsWindowVisible(hwnd):
         window_title = win32gui.GetWindowText(hwnd)
