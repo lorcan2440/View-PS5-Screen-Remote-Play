@@ -1,11 +1,45 @@
 import numpy as np
+import re
 from ctypes import windll
 import win32gui, win32ui
 import cv2 as cv
 
 WIN_HANDLES = None
 PW_CLIENTONLY = 0x03  # https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-printwindow
+WINDOW_NAME_SEARCH_REGEX = r'PS Remote Play'
 
+
+def winEnumHandler(hwnd, regex, window_titles):
+    if win32gui.IsWindowVisible(hwnd):
+        window_title = win32gui.GetWindowText(hwnd)
+        if re.search(regex, window_title.strip()):
+            window_titles.append(window_title)
+
+def find_window_name(regex: str) -> str:
+    window_titles = []
+    regex = re.compile(regex)
+    win32gui.EnumWindows(lambda hwnd, ctx: winEnumHandler(hwnd, regex, window_titles), None)
+    if len(window_titles) == 0:
+        raise RuntimeError(f"Window not found. Searched with RegEx: {regex}")
+    elif len(window_titles) == 1:
+        print(f"Recording window: {window_titles[0]}")
+        return window_titles[0]
+    else:
+        print(f"Found {len(window_titles)} windows matching the regex. Please select one to record.")
+        for i, title in enumerate(window_titles):
+            print(f"{i}: {title}")
+        while True:
+            s = input(f'Select number from list: ')
+            try:
+                s_num = int(s)
+                if s_num < 0 or s_num >= len(window_titles):
+                    raise ValueError
+                else:
+                    break
+            except ValueError:
+                continue
+        print(f"Recording window: {window_titles[s_num]}")
+        return window_titles[s_num]
 
 def capture_win_alt(window_title: str) -> np.ndarray:
     '''
@@ -73,8 +107,11 @@ def capture_win_alt(window_title: str) -> np.ndarray:
 
 
 if __name__ == '__main__':
+    # find name of window to be recorded
+    window_title = find_window_name(WINDOW_NAME_SEARCH_REGEX)
+    # record window
     cv.namedWindow('Computer Vision', cv.WINDOW_NORMAL)
     while cv.waitKey(1) != ord('q'):
         # press 'q' to quit
-        img = capture_win_alt('PS Remote Play')
+        img = capture_win_alt(window_title)
         cv.imshow('Computer Vision', img)
