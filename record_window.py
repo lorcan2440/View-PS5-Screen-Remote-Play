@@ -4,6 +4,7 @@ from ctypes import windll
 import win32gui, win32ui
 import cv2 as cv
 
+
 WIN_HANDLES = None
 PW_CLIENTONLY = 0x03  # https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-printwindow
 WINDOW_NAME_SEARCH_REGEX = r'PS Remote Play'
