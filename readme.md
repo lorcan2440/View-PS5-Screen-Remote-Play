@@ -7,6 +7,8 @@ A lot of existing scripts to read graphics from windows into Python do not work 
 - PS Remote Play Software: https://remoteplay.dl.playstation.net/remoteplay/lang/gb/index.html
 - PC running Windows with Python installed
 
+Streaming software is not required.
+
 ## Steps
 
 I followed the steps in the first 3 minutes only of [this](https://www.youtube.com/watch?v=cNBs8Wgelf0) video, except for the OBS/Streamlabs part.
@@ -31,6 +33,12 @@ The latency is low with PS Remote Play. The resolution depends on your internet 
 You can get even faster processing by using C++ instead of Python. I have provided an equivalent version of the python script here in C++. Installing opencv in C++ requires building the library from scratch however which is not as beginner friendly as python.
 
 Great for computer vision applications (object detection etc).
+
+## Notes
+
+By changing the name of the window that is recorded in the code, you can capture any other window too.
+
+Using this code to capture DeSmuME (Nintendo DS emulator) gameplay produced poor results, with frequent white flashing of the screen. Changing the frame skip options did not seem to improve it so this remains unfeasible right now.
 
 ## Code (Python) `record_window.py`
 
