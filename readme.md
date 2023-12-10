@@ -22,7 +22,7 @@ Streaming software is not required.
 9. You should now see the live video feed on your PC in PS Remote Play, and be able to play using the controller on your main account. Keep the Remote Play window active (*not minimised* - just put it behind whatever other windows you need to look at).
 10. In python, install the libraries NumPy, PyWin32 and OpenCV. The pip command is:
     `pip install numpy opencv-python pywin32`
-11. Copy and run the Python code in `record_window.py` (using same filename) to test it out. If all goes well you should see your gameplay live in an OpenCV window.
+11. Copy and run the Python code in `record_window.py` (using this filename) to test it out. If all goes well you should see your gameplay live in an OpenCV window.
 
 To use the code in your larger project, use it as a Python module:
 
