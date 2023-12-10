@@ -7,7 +7,7 @@ A lot of existing scripts to read graphics from windows into Python do not work 
 ## Requirements:
 
 - PS Remote Play Software: https://remoteplay.dl.playstation.net/remoteplay/lang/gb/index.html
-- PC running Windows with Python installed. Tested working with Windows 10 and 11.
+- PC running Windows with Python installed. Tested working with Windows 10/11, Python 3.10/12.
 
 Streaming software is not required.
 
