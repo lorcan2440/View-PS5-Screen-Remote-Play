@@ -13,6 +13,7 @@ Streaming software is not required.
 
 ## Steps
 
+#### Sending the PS5 video feed to your computer
 1. Create a new PSN account ("the second account"). This will be used to host the Remote Play session to decrease lag. You will still be able to use your main account to actually play the game!
 2. While logged into the second account, go to Settings > Users and Accounts > Other > Enable Console Sharing and Offline Play.
 3. Switch users (don't log out) back to your main account.
@@ -22,8 +23,9 @@ Streaming software is not required.
 7. Press a button on your controller to bring up the "Who's playing?" box - select your main account.
 8. To remove the "Remote Play Connected" banner at the top of the screen, on your PS5 main account, go to Settings > System > Language and choose any other language, then change it back to your own language. This seems to be a workaround for a bug rather than an actual feature so this may not be necessary in future.
 9. You should now see the live video feed on your PC in PS Remote Play, and be able to play using the controller on your main account. Keep the Remote Play window active (*not minimised* - just put it behind whatever other windows you need to look at).
-10. In python, install the libraries NumPy, PyWin32 and OpenCV. The pip command is:
-    `pip install numpy opencv-python pywin32`
+
+#### Reading from your computer into OpenCV
+10. In python, install the libraries NumPy, PyWin32 and OpenCV. The `pip` command is: `pip install numpy opencv-python pywin32`
 11. Copy and run the Python code in `record_window.py` (using this filename) to test it out. If all goes well you should see your gameplay live in an OpenCV window.
 
 To use the code in your larger project, use it as a Python module:
